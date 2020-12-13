@@ -1,0 +1,2 @@
+# herewerust
+learn rust language
