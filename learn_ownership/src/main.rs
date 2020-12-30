@@ -80,6 +80,31 @@ fn main() {
     //     let r3 = &mut s1;
     //     println!("r1:{}, r2:{}, r3:{}", r1, r2, r3);
     // }
+
+    // 切片，其实是一种不可变引用，字符串的切片类型为&str 其他数组的切片类型是 &[type]
+    // 因为是引用所以必须带&前缀，随后跟索引指定子数组
+    let mut hw = String::from("hello world!");
+    // 创建字符串切片，必须使用&v[..]，这是一个完整字符的数组，类型是&str
+    // 可以增加前后索引指定子串切片，比如 &v[1..10] &v[..10] &v[1..]
+    let s1 = &hw[..];
+    let w = findFirstWord(&hw[..]);
+    // 因为w已经是不可变引用，所以不能调用clear传入可变引用了
+    // hw.clear();
+    println!("first word: {}", w);
+
+    let arr = [1, 2, 3, 4];
+    // 如下是数组类型 [i32; 4]的切片，类型为 &[i32]
+    let a1 = &arr[..];
+}
+
+fn findFirstWord(s: &str) -> &str{
+    let bytes = s.as_bytes();
+    for (i, &b) in bytes.iter().enumerate() {
+        if b == b' ' {
+            return &s[..i];
+        }
+    }
+    return s
 }
 
 fn fib(n: i32) ->i32 {
