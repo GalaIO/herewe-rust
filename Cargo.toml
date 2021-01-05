@@ -14,4 +14,8 @@ members = [
     "learn_ownership",
     "learn_struct",
     "learn_collections",
+    "learn_error",
+    "learn_generic",
+    "learn_trait",
+    "learn_lifetime",
 ]
